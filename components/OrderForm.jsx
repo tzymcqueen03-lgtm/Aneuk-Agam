@@ -281,10 +281,10 @@ export default function OrderForm() {
                   </span>
                 </div>
 
-                <div className="grid gap-5 p-4 sm:grid-cols-[200px_1fr] sm:p-5">
+                <div className="grid gap-5 p-4 sm:grid-cols-[230px_1fr] sm:p-5">
                   {/* Gambar QRIS */}
-                  <div className="mx-auto w-full max-w-[200px]">
-                    <div className="relative aspect-square border-3 border-ink bg-cream p-3 shadow-brut">
+                  <div className="mx-auto w-full max-w-[230px]">
+                    <div className="relative aspect-[3/4] border-3 border-ink bg-cream p-2 shadow-brut">
                       {qrisLoading ? (
                         <div className="flex h-full w-full items-center justify-center">
                           <span className="h-8 w-8 animate-spin-slow border-3 border-ink border-t-transparent" />

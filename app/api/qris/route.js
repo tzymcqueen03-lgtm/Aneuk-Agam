@@ -7,14 +7,18 @@ export const revalidate = 0;
 
 const QRIS_PREFIX = "qris/qris";
 
+// Gambar QRIS statis bawaan (ada di public/images/qris.jpg).
+// Dipakai kalau belum ada upload dari /admin dan QRIS_FALLBACK_URL tidak diisi.
+const STATIC_QRIS = "/images/qris.jpg";
+
 /**
  * Mengembalikan URL gambar QRIS terbaru.
- * 1) Cari di Vercel Blob (hasil upload dari /admin)
+ * 1) Cari di Vercel Blob (hasil upload dari /admin) — paling diprioritaskan
  * 2) Kalau belum ada, pakai QRIS_FALLBACK_URL dari env (opsional)
- * 3) Kalau tidak ada juga, url = null (frontend tampilkan placeholder)
+ * 3) Kalau tidak diisi, pakai gambar statis /images/qris.jpg
  */
 export async function GET() {
-  const fallback = process.env.QRIS_FALLBACK_URL || null;
+  const fallback = process.env.QRIS_FALLBACK_URL || STATIC_QRIS;
 
   if (!blobToken()) {
     return NextResponse.json({ url: fallback, source: fallback ? "fallback" : "none", blobConfigured: false });
