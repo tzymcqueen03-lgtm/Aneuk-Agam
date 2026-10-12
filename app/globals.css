@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   ANEUKAGAM — NEO-BRUTALISM DESIGN SYSTEM
+   ========================================================================== */
+
+@layer base {
+  :root {
+    --ink: #111111;
+    --cream: #f7f5f0;
+    --orange: #ff5a00;
+    --yellow: #ffc800;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--yellow);
+    color: var(--ink);
+  }
+
+  /* Scrollbar bergaya brutalism */
+  ::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--cream);
+    border-left: 3px solid var(--ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--ink);
+    border: 3px solid var(--cream);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0);
+    opacity: 0.85;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* ---------- Tipografi ---------- */
+  .font-display {
+    font-family: var(--font-display), Impact, "Haettenschweiler", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.92;
+  }
+
+  .label-mono {
+    @apply text-[10px] font-black uppercase tracking-[0.22em];
+  }
+
+  /* ---------- Permukaan / Kartu ---------- */
+  .brut-surface {
+    @apply border-3 border-ink bg-white shadow-brut;
+  }
+
+  .brut-card {
+    @apply border-3 border-ink bg-white shadow-brut transition-all duration-200;
+  }
+
+  /* ---------- Tombol ---------- */
+  .brut-btn {
+    @apply relative inline-flex select-none items-center justify-center gap-2 border-3 border-ink
+           px-5 py-3 text-xs font-black uppercase tracking-[0.14em]
+           shadow-brut transition-all duration-150
+           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+  }
+
+  .brut-btn:hover {
+    @apply -translate-x-[2px] -translate-y-[2px] shadow-brut-md;
+  }
+
+  .brut-btn:disabled {
+    @apply cursor-not-allowed opacity-50 shadow-brut-xs translate-x-0 translate-y-0;
+  }
+
+  .brut-btn-lg {
+    @apply px-7 py-4 text-sm;
+  }
+
+  .brut-btn-ink {
+    @apply bg-ink text-cream;
+  }
+  .brut-btn-orange {
+    @apply bg-brand-orange text-ink;
+  }
+  .brut-btn-yellow {
+    @apply bg-brand-yellow text-ink;
+  }
+  .brut-btn-cream {
+    @apply bg-cream text-ink;
+  }
+  .brut-btn-wa {
+    background-color: #25d366;
+    @apply text-ink;
+  }
+
+  /* ---------- Kotak ikon persegi (seperti tombol panah di referensi) ---------- */
+  .brut-icon-box {
+    @apply inline-flex h-11 w-11 shrink-0 items-center justify-center border-3 border-ink shadow-brut-xs;
+  }
+
+  /* ---------- Badge / Label ---------- */
+  .brut-badge {
+    @apply inline-flex items-center gap-1.5 border-3 border-ink bg-brand-yellow px-2.5 py-1
+           text-[10px] font-black uppercase tracking-[0.18em] text-ink shadow-brut-xs;
+  }
+
+  .brut-chip {
+    @apply inline-flex items-center border-2 border-ink bg-white px-2 py-0.5
+           text-[10px] font-bold uppercase tracking-wider text-ink;
+  }
+
+  /* ---------- Input ---------- */
+  .brut-input {
+    @apply w-full border-3 border-ink bg-white px-4 py-3 text-sm font-bold text-ink
+           placeholder:font-semibold placeholder:text-smoke
+           focus:outline-none focus:ring-0 focus:shadow-brut transition-shadow duration-150;
+  }
+  .brut-input:focus {
+    @apply -translate-y-[2px] shadow-brut;
+  }
+  .brut-input-error {
+    @apply border-brand-orange bg-orange-50;
+  }
+
+  .brut-label {
+    @apply mb-2 block text-[10px] font-black uppercase tracking-[0.2em] text-ink;
+  }
+
+  /* ---------- Pembatas bertulisan (OR CONTINUE WITH) ---------- */
+  .brut-divider {
+    @apply relative flex items-center justify-center;
+  }
+  .brut-divider::before {
+    content: "";
+    @apply absolute left-0 top-1/2 h-[3px] w-full -translate-y-1/2 bg-ink;
+  }
+  .brut-divider span {
+    @apply relative z-10 bg-cream px-3 text-[10px] font-black uppercase tracking-[0.22em];
+  }
+
+  /* ---------- Highlight stabilo ---------- */
+  .hl-yellow {
+    @apply bg-brand-yellow px-2 box-decoration-clone;
+  }
+  .hl-orange {
+    @apply bg-brand-orange px-2 text-ink box-decoration-clone;
+  }
+}
+
+@layer utilities {
+  /* Pola titik halftone */
+  .pattern-dots {
+    background-image: radial-gradient(#111111 1.6px, transparent 1.6px);
+    background-size: 11px 11px;
+  }
+  .pattern-dots-sm {
+    background-image: radial-gradient(#111111 1.2px, transparent 1.2px);
+    background-size: 7px 7px;
+  }
+  .pattern-dots-white {
+    background-image: radial-gradient(#ffffff 1.6px, transparent 1.6px);
+    background-size: 11px 11px;
+  }
+
+  /* Pola strip diagonal (hazard tape) */
+  .pattern-stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #111111 0px,
+      #111111 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  }
+  .pattern-stripes-dense {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #111111 0px,
+      #111111 5px,
+      transparent 5px,
+      transparent 10px
+    );
+  }
+  .pattern-stripes-yellow {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #111111 0px,
+      #111111 10px,
+      #ffc800 10px,
+      #ffc800 20px
+    );
+  }
+
+  /* Grid kertas */
+  .pattern-grid {
+    background-image:
+      linear-gradient(to right, rgba(17, 17, 17, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17, 17, 17, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 2px #111111;
+    color: transparent;
+  }
+  .text-outline-white {
+    -webkit-text-stroke: 2px #ffffff;
+    color: transparent;
+  }
+
+  .shadow-none-force {
+    box-shadow: none !important;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
