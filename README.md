@@ -57,11 +57,12 @@ Salin dari `.env.example`. Di Vercel: **Project → Settings → Environment Var
 | Nama | Wajib? | Fungsi |
 | --- | --- | --- |
 | `ADMIN_PASSWORD` | **Ya** | Password untuk masuk `/admin`. |
-| `BLOB_READ_WRITE_TOKEN` | **Ya** (untuk QRIS permanen) | Menyimpan gambar QRIS di Vercel Blob. |
-| `QRIS_FALLBACK_URL` | Tidak | URL gambar QRIS cadangan bila Blob kosong. |
+| `BLOB_READ_WRITE_TOKEN` | Tidak (opsional) | Menyimpan gambar QRIS di Vercel Blob. Tanpa ini, web pakai QRIS statis di `public/images/qris.jpg`. |
+| `QRIS_FALLBACK_URL` | Tidak | URL gambar QRIS cadangan. Default otomatis `/images/qris.jpg`. |
 | `NEXT_PUBLIC_WA_NUMBER` | Tidak | Override nomor WhatsApp (default `6289520644539`). |
 
-> `BLOB_READ_WRITE_TOKEN` **tidak perlu diketik manual** — otomatis dibuat Vercel saat kamu membuat Blob store di project ini.
+> **QRIS sudah terpasang** (`public/images/qris.jpg` — Aneuk Agam, Service). Web langsung menampilkannya tanpa perlu setup apa pun.
+> `BLOB_READ_WRITE_TOKEN` hanya perlu bila kamu mau **mengganti** QRIS lewat `/admin` (agar tersimpan permanen).
 
 ---
 
