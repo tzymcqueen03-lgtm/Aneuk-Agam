@@ -1,6 +1,7 @@
 "use client";
 
 import { navLinks, services, site } from "@/config/site";
+import Image from "next/image";
 import Reveal from "./ui/Reveal";
 import { DotCluster, StripeBar } from "./ui/Patterns";
 import { ArrowUpRightIcon, WhatsAppIcon, BoltIcon, ArrowIcon } from "@/lib/icons";
@@ -61,8 +62,14 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
-              <span className="brut-icon-box h-11 w-11 bg-brand-orange text-ink">
-                <BoltIcon size={22} strokeWidth={2.8} />
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden border-3 border-cream/20 bg-white shadow-brut-xs">
+                <Image
+                  src="/images/logo-mark.png"
+                  alt="Logo AneukAgam"
+                  width={48}
+                  height={48}
+                  className="h-10 w-10 object-contain"
+                />
               </span>
               <div>
                 <p className="font-display text-2xl">{site.name}</p>

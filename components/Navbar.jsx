@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks, site } from "@/config/site";
 import { useCart } from "./CartProvider";
-import { ArrowUpRightIcon, BoltIcon, PlusIcon } from "@/lib/icons";
+import { ArrowUpRightIcon, PlusIcon } from "@/lib/icons";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,8 +38,15 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a href="#hero" className="group flex items-center gap-3 pl-3 pr-4 py-2.5">
-          <span className="brut-icon-box h-9 w-9 bg-brand-orange group-hover:rotate-6 transition-transform">
-            <BoltIcon size={18} strokeWidth={2.8} />
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border-3 border-ink bg-white shadow-brut-xs transition-transform group-hover:rotate-6">
+            <Image
+              src="/images/logo-mark.png"
+              alt="Logo AneukAgam"
+              width={40}
+              height={40}
+              className="h-8 w-8 object-contain"
+              priority
+            />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg tracking-tight sm:text-xl">{site.name}</span>
@@ -115,7 +123,9 @@ export default function Navbar() {
             >
               <div className="mb-6 flex items-center justify-between border-b-3 border-ink pb-4">
                 <span className="font-display text-2xl">Menu</span>
-                <span className="brut-badge">AA</span>
+                <span className="flex h-9 w-9 items-center justify-center overflow-hidden border-3 border-ink bg-white shadow-brut-xs">
+                  <Image src="/images/logo-mark.png" alt="Logo AneukAgam" width={36} height={36} className="h-7 w-7 object-contain" />
+                </span>
               </div>
 
               <div className="flex flex-col gap-3">

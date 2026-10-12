@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { site, services } from "@/config/site";
 import { useCart } from "./CartProvider";
 import { ArrowIcon, ArrowUpRightIcon, CheckIcon, ServiceIcon, BoltIcon } from "@/lib/icons";
@@ -110,7 +111,12 @@ export default function Hero() {
             <div className="relative border-3 border-ink bg-white shadow-brut-lg" style={{ boxShadow: "10px 10px 0 0 #111111" }}>
               {/* Header kartu */}
               <div className="flex items-center justify-between border-b-3 border-ink bg-ink px-4 py-3">
-                <span className="label-mono text-cream">Tiket Pesanan</span>
+                <span className="flex items-center gap-2">
+                  <span className="flex h-7 w-7 items-center justify-center overflow-hidden border-2 border-cream/25 bg-white">
+                    <Image src="/images/logo-mark.png" alt="Logo AneukAgam" width={28} height={28} className="h-5 w-5 object-contain" />
+                  </span>
+                  <span className="label-mono text-cream">Tiket Pesanan</span>
+                </span>
                 <span className="brut-badge !shadow-none">NO. 001</span>
               </div>
 

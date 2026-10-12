@@ -134,7 +134,16 @@ aneukagam/
 │   └── ui/  (Reveal, Stagger, CountUp, Marquee, SectionHeading, Patterns)
 ├── config/site.js               # ★ SEMUA DATA: layanan, harga, WA, langkah
 ├── lib/  (format.js, whatsapp.js, auth.js, icons.jsx)
-└── public/images/qris-placeholder.svg
+├── app/icon.png                 # Favicon (otomatis oleh Next.js)
+├── app/apple-icon.png           # Ikon iOS
+├── app/favicon.ico              # Favicon klasik
+└── public/images/
+    ├── logo.png                 # Logo lengkap (emblem + wordmark), transparan
+    ├── logo-mark.png            # Emblem saja (navbar, footer, tiket)
+    ├── logo-mark-square.png     # Emblem versi kotak (serbaguna)
+    ├── og-image.png             # Gambar share sosial 1200×630
+    ├── qris.jpg                 # ★ QRIS asli (Aneuk Agam, Service)
+    └── qris-placeholder.svg     # Cadangan QRIS (SVG)
 ```
 
 ---
